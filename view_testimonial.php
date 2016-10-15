@@ -47,35 +47,37 @@ try{
   
   /*Now setting the pagecontrolls */
  //The controlls previous to the current page
-  $pagecontroll = '';
-  if($pagenumber > 1)
-  {
-    $pagecontroll .= '<a href="'.$_SERVER["PHP_SELF"].'?pn='.$pagenumber-1.'">Prev</a>';
-    for($i = $pagenumber-4;$i<$last;$i++)
-    {
-      if()
-      {
-        $pagecontroll .= '<a href="'.$_SERVER[PHP_SELF].'?pn='.$i.'">'.$i.'</a>';
-      }
-    }
-  }
-  //centerpage
-  $pagecontroll .= ' '.$pagenumber.' &nbsp';
-  //The pages next to the current page
-  for($i=$pagenumber+1;$i<$last;$i++)
-  {
-    $pagecontroll .= '<a href="'.$_SERVER[PHP_SELF].'?pn='.$i.'">'.$i.'</a>';
-    if($i >= $pagenumber + 4)
-    {
-      break;
-    }
-  }
-  if($pagenumber != $last)
-  {
-    $pagecontroll .= '<a href="'.$_SERVER["PHP_SELF"].'?pn='.$pagenumber+1.'">Prev</a>';
-  }
+  if($last != 1)
+     {
+        $pagecontroll = '';
+        if($pagenumber > 1)
+        {
+          $pagecontroll .= '<a href="'.$_SERVER["PHP_SELF"].'?pn='.$pagenumber-1.'">Prev</a>';
+          for($i = $pagenumber-4;$i<$last;$i++)
+          {
+            if()
+            {
+              $pagecontroll .= '<a href="'.$_SERVER[PHP_SELF].'?pn='.$i.'">'.$i.'</a>';
+            }
+          }
+        }
+        //centerpage
+        $pagecontroll .= ' '.$pagenumber.' &nbsp';
+        //The pages next to the current page
+        for($i=$pagenumber+1;$i<$last;$i++)
+        {
+          $pagecontroll .= '<a href="'.$_SERVER[PHP_SELF].'?pn='.$i.'">'.$i.'</a>';
+          if($i >= $pagenumber + 4)
+          {
+            break;
+          }
+        }
+        if($pagenumber != $last)
+        {
+          $pagecontroll .= '<a href="'.$_SERVER["PHP_SELF"].'?pn='.$pagenumber+1.'">Prev</a>';
+        }
   
-  
+     }
   
   //fetching all the testimonials
   $con = new PDO("mysql:host=localhost;dbname=s_database","root","");
