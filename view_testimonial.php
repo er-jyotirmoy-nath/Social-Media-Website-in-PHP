@@ -55,7 +55,7 @@ try{
           $pagecontroll .= '<a href="'.$_SERVER["PHP_SELF"].'?pn='.$pagenumber-1.'">Prev</a>';
           for($i = $pagenumber-4;$i<$last;$i++)
           {
-            if()
+            if($i > 1)
             {
               $pagecontroll .= '<a href="'.$_SERVER[PHP_SELF].'?pn='.$i.'">'.$i.'</a>';
             }
